@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 250px;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+        }
+
+        .card p {
+            font-size: 18px;
+            color: green;
+            font-weight: bold;
+        }
+
+        .card button {
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0 15px 0;
+            transition: background 0.3s;
+        }
+
+        .card button:hover {
+            background-color: #cc5200;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align:center;">Product Cards</h1>
+
+    <div class="container">
+        <div class="card">
+            <img src="pizza.avif" alt="Item 1">
+            <h3>Pizza</h3>
+            <p>Rs.210</p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="card">
+            <img src="burger.avif" alt="Item 2">
+            <h3>Burger</h3>
+            <p>Rs.60</p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="card">
+            <img src="pasta.avif" alt="Item 3">
+            <h3>Pasta</h3>
+            <p>Rs.320.99</p>
+            <button>Buy Now</button>
+        </div>
+    </div>
+
+</body>
+</html>
