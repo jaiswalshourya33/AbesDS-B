@@ -14,7 +14,7 @@
         .container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 70px;
             flex-wrap: wrap;
         }
 
@@ -26,6 +26,7 @@
             text-align: center;
             overflow: hidden;
             transition: transform 0.2s ease;
+            
         }
 
         .card:hover {
@@ -57,11 +58,20 @@
             cursor: pointer;
             margin: 10px 0 15px 0;
             transition: background 0.3s;
+            
+        }
+        .card .cart{
+            background-color: rgb(66, 66, 215);
         }
 
         .card button:hover {
             background-color: #cc5200;
         }
+
+        .card .cart:hover{
+            background-color: rgb(5, 5, 105);
+        }
+
     </style>
 </head>
 <body>
@@ -74,6 +84,7 @@
             <h3>Pizza</h3>
             <p>Rs.210</p>
             <button>Buy Now</button>
+            <button class="cart">Order</button>
         </div>
 
         <div class="card">
@@ -81,6 +92,7 @@
             <h3>Burger</h3>
             <p>Rs.60</p>
             <button>Buy Now</button>
+            <button class="cart">Order</button>
         </div>
 
         <div class="card">
@@ -88,6 +100,7 @@
             <h3>Pasta</h3>
             <p>Rs.320.99</p>
             <button>Buy Now</button>
+            <button class="cart">Order</button>
         </div>
     </div>
 
