@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Branch Cards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 340px;
+    }
+
+    .card h2 {
+      margin: 0 0 15px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .student {
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+    }
+
+    .student:last-child {
+      border-bottom: none;
+    }
+
+    .student strong {
+      display: block;
+      font-size: 16px;
+      color: #222;
+      margin-bottom: 5px;
+    }
+
+    .student span {
+      display: block;
+      font-size: 13px;
+      color: #555;
+      margin: 1px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="same-branch">
+    <h2>Same Branch Students</h2>
+    <div id="same-list"></div>
+  </div>
+
+  <div class="card" id="diff-branch">
+    <h2>Different Branch Students</h2>
+    <div id="diff-list"></div>
+  </div>
+
+  <script>
+    // JSON Data (5 students: 3 same branch, 2 different)
+    const students = [
+      { "id": 1, "name": "Aanya Mehra",   "branch": "CSE", "year": 3, "roll": "CSE2023A01", "email": "aanya.m@example.com" },
+      { "id": 2, "name": "Rohan Gupta",   "branch": "CSE", "year": 3, "roll": "CSE2023A02", "email": "rohan.g@example.com" },
+      { "id": 3, "name": "Priya Sharma",  "branch": "CSE", "year": 2, "roll": "CSE2024A03", "email": "priya.s@example.com" },
+      { "id": 4, "name": "Aditya Verma",  "branch": "ECE", "year": 2, "roll": "ECE2024B01", "email": "aditya.v@example.com" },
+      { "id": 5, "name": "Sneha Kulkarni","branch": "ME",  "year": 1, "roll": "ME2025C01", "email": "sneha.k@example.com" }
+    ];
+
+    // find the most common branch
+    const branchCount = {};
+    students.forEach(s => branchCount[s.branch] = (branchCount[s.branch] || 0) + 1);
+    const commonBranch = Object.keys(branchCount).reduce((a, b) => branchCount[a] > branchCount[b] ? a : b);
+
+    const sameBranch = students.filter(s => s.branch === commonBranch);
+    const diffBranch = students.filter(s => s.branch !== commonBranch);
+
+    const sameList = document.getElementById("same-list");
+    const diffList = document.getElementById("diff-list");
+
+    function renderStudent(s, container) {
+      const div = document.createElement("div");
+      div.className = "student";
+      div.innerHTML = `
+        <strong>${s.name}</strong>
+        <span><b>ID:</b> ${s.id}</span>
+        <span><b>Branch:</b> ${s.branch}</span>
+        <span><b>Year:</b> ${s.year}</span>
+        <span><b>Roll No:</b> ${s.roll}</span>
+        <span><b>Email:</b> ${s.email}</span>
+      `;
+      container.appendChild(div);
+    }
+
+    sameBranch.forEach(s => renderStudent(s, sameList));
+    diffBranch.forEach(s => renderStudent(s, diffList));
+  </script>
+
+</body>
+</html>
