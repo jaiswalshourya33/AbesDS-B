@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- m1=promise(resolve,reject){
+
+    }
+    m1.then();
+    m1.catch(); -->
+    <script>
+        const mypromise= new Promise((resolve,reject)=>{
+            const password = "shourya@20";
+            if(password.length>8){
+                resolve("password length is ok");
+            }else{
+                reject("password ud shorter in length");
+            }
+        }) 
+        mypromise.then((msg)=>{
+            console.log(msg);
+        })
+        mypromise.catch((msg)=>){
+            console.log(err);
+        }
+    </script>
+
 </body>
 </html>
