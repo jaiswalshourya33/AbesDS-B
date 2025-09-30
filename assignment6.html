@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 50px;
+       }
+       .card{
+        width: 400px;
+        height: 300px;
+        border: 2px solid black;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+       }
+       .card img{
+        width: 200px;
+        height: 150px;
+        border-radius: 10px;
+        object-fit: cover;
+       }
+         #counter{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+         }
+         .container2{
+            
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Counter App</h1>
+            <img src="burger.avif" alt="Card Image">
+        </div>
+        
+        <div id="counter">
+            <div class="inc">+</div>
+            <div class="count">0</div>
+            <div class="dec">-</div>
+        </div>
+    </div>
+    <div class="container2">
+        <img src="pasta.avif">
+        <button>Hide</button>
+    </div>
+    <script>
+        let count=0;
+        let countEl=document.querySelector(".count");
+        let incEl=document.querySelector(".inc");
+        let decEl=document.querySelector(".dec");
+
+        incEl.addEventListener("click",function(){
+            count++;
+            countEl.innerText=count;
+        });
+        decEl.addEventListener("click",function(){
+            count--;
+            countEl.innerText=count;
+        });
+    </script>
+        
+</body>
+</html>
